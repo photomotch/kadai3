@@ -1,0 +1,22 @@
+#!/bin/bash
+#自然数をふたつ引数にとって最大公約数を求める
+
+if [ $# -ne 2 ]; then
+	exit 1
+fi
+
+declare -i a=$1
+declare -i b=$2
+
+while [ ${a} -ne ${b} ]
+do
+	if [ ${a} -gt ${b} ]
+	then
+		a=$(( ${a} - ${b} ))
+	else
+		b=$(( ${b} - ${a} ))
+	fi
+done
+
+echo ${a}
+
